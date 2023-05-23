@@ -40,6 +40,15 @@ srun --cpus-per-task=2 --time=00:30:00 xargs -I{} -a linastep_run_accessions.txt
 #according to the fastqc files, the low quality sequences and sequences adapters were removed. 
 
 #Merging pair-end reads using flash2
+srun --cpus-per-task=2 --time=00:30:00 flash2 --threads=2 --output-directory=../data/merged_pairs --output-prefix=ERR6913147.flash --compress ../data/sra_fastq/ERR6913147_1.fastq.gz ../data/sra_fastq/ERR6913147_2.fastq.gz 2>&1 | tee -a linastep_flash2.log #64% of the reads were merged successfully; program suggest increasing -M parameter to be bigger than 65
+
+#checking the length of the merged reads
+srun --cpus-per-task=1 --time=00:30:00 seqkit stats -j 1 ../data/merged_pairs/ERR6913147.flash.extendedFrags.fastq.gz #longest read now is 292 instead of 160
+
+
+#merging all paired reads 
+srun --cpus-per-task=2 --time=00:30:00 xargs -a linastep_run_accessions.txt -n 1 -I{} flash2 --threads=2 --output-directory=../data/merged_pairs --output-prefix={}.flash --compress ../data/sra_fastq/{}_1.fastq.gz ../data/sra_fastq/{}_2.fastq.gz 2>&1 | tee -a linastep_flash2.log
+
 
 
 
