@@ -34,6 +34,13 @@ zcat ../data/sra_fastq/ERR6913147_1.fastq.gz | srun --cpus-per-task=4 --time=00:
 zcat ../data/sra_fastq/ERR6913147_1.fastq.gz | srun --cpus-per-task=4 --time=00:30:00 seqkit locate -j 4 -p AGATCGGAAGAGCGTCG -M #tried approx half-sites of the read2 adapter, no match due to the fact that adaptor is for - strands. 
 
 #Quality control of FASTQ files
+srun --cpus-per-task=2 --time=00:30:00 fastqc -o ./fastqc/ -t 2 --noextract ../data/sra_fastq/ERR6913147_1.fastq.gz ../data/sra_fastq/ERR6913147_2.fastq.gz
+#running all files at the same time
+srun --cpus-per-task=2 --time=00:30:00 xargs -I{} -a linastep_run_accessions.txt fastqc -o ./fastqc/ -t 2 --noextract ../data/sra_fastq/{}_1.fastq.gz ../data/sra_fastq/{}_2.fastq.gz
+#according to the fastqc files, the low quality sequences and sequences adapters were removed. 
+
+#Merging pair-end reads using flash2
+
 
 
 echo "Finished"
