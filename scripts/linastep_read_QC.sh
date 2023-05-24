@@ -49,6 +49,28 @@ srun --cpus-per-task=1 --time=00:30:00 seqkit stats -j 1 ../data/merged_pairs/ER
 #merging all paired reads 
 srun --cpus-per-task=2 --time=00:30:00 xargs -a linastep_run_accessions.txt -n 1 -I{} flash2 --threads=2 --output-directory=../data/merged_pairs --output-prefix={}.flash --compress ../data/sra_fastq/{}_1.fastq.gz ../data/sra_fastq/{}_2.fastq.gz 2>&1 | tee -a linastep_flash2.log
 
+#Removing PhiX contamination 
+mkdir ../data/reference_seqs #making directory to store reference sequences
+
+sh -c "$(wget -q ftp://ftp.ncbi.nlm.nih.gov/entrez/entrezdirect/install-edirect.sh -O -)" #installing the ncbi package in working folder rather than home directory
+
+efetch -db nuccore -id NC_001422 -format fasta > ../data/reference_seqs/PhiX_NC_001422.fna #getting NC_001422 sequence as a test
+
+module load bowtie2 #load bowtie module
+
+#converting reference sequence to bowtie database format 
+mkdir ../data/bowtie2_DBs
+srun bowtie2-build -f ../data/reference_seqs/PhiX_NC_001422.fna ../data/bowtie2_DBs/PhiX_bowtie2_DB
+
+#checking whether there is PhiX contamination
+mkdir bowtie
+srun --cpus-per-task=8 bowtie2 -x ../data/bowtie2_DBs/PhiX_bowtie2_DB -U ../data/merged_pairs/ERR*.extendedFrags.fastq.gz -S bowtie/linastep_merged2PhiX.sam --threads 8 --no-unal 2>&1 | tee bowtie/linastep_bowtie2_PhiX.log #none were found
+
+#aligning the reads to the Covid reference gene
+efetch -db nuccore -id NC_045512 -format fasta > ../data/reference_seqs/SC2_NC_045512.fna
+srun bowtie2-build -f ../data/reference_seqs/SC2_NC_045512.fna ../data/bowtie2_DBs/SC2_bowtie2_DB
+srun --cpus-per-task=8 bowtie2 -x ../data/bowtie2_DBs/SC2_bowtie2_DB -U ../data/merged_pairs/ERR*.extendedFrags.fastq.gz -S bowtie/linastep_merged2SC2.sam --threads 8 --no-unal 2>&1 | tee bowtie/linastep_bowtie2_SC2.log #3 reads were aligned to the Sars-Cov-2 reference genome
+
 
 
 
