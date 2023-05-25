@@ -1,0 +1,22 @@
+Module	Section	Sample Name	Source
+Bowtie 2 / HiSAT2	all_sections	linastep_bowtie2_SC2	/shared/ifbstor1/projects/2314_medbioinfo/lina/MedBioinfo/analyses/bowtie/linastep_bowtie2_SC2.log
+Bowtie 2 / HiSAT2	all_sections	linastep_bowtie2_PhiX	/shared/ifbstor1/projects/2314_medbioinfo/lina/MedBioinfo/analyses/bowtie/linastep_bowtie2_PhiX.log
+Bowtie 2 / HiSAT2	all_sections	linastep_bowtie2_Ca	/shared/ifbstor1/projects/2314_medbioinfo/lina/MedBioinfo/analyses/bowtie/linastep_bowtie2_Ca.log
+Bowtie 2 / HiSAT2	all_sections	linastep_bowtie2_SC2-checkpoint	/shared/ifbstor1/projects/2314_medbioinfo/lina/MedBioinfo/analyses/bowtie/.ipynb_checkpoints/linastep_bowtie2_SC2-checkpoint.log
+FastQC	all_sections	ERR6913250_1	/shared/ifbstor1/projects/2314_medbioinfo/lina/MedBioinfo/analyses/fastqc/ERR6913250_1_fastqc.zip
+FastQC	all_sections	ERR6913147_2	/shared/ifbstor1/projects/2314_medbioinfo/lina/MedBioinfo/analyses/fastqc/ERR6913147_2_fastqc.zip
+FastQC	all_sections	ERR6913243_1	/shared/ifbstor1/projects/2314_medbioinfo/lina/MedBioinfo/analyses/fastqc/ERR6913243_1_fastqc.zip
+FastQC	all_sections	ERR6913250_2	/shared/ifbstor1/projects/2314_medbioinfo/lina/MedBioinfo/analyses/fastqc/ERR6913250_2_fastqc.zip
+FastQC	all_sections	ERR6913147_1	/shared/ifbstor1/projects/2314_medbioinfo/lina/MedBioinfo/analyses/fastqc/ERR6913147_1_fastqc.zip
+FastQC	all_sections	ERR6913157_2	/shared/ifbstor1/projects/2314_medbioinfo/lina/MedBioinfo/analyses/fastqc/ERR6913157_2_fastqc.zip
+FastQC	all_sections	ERR6913154_1	/shared/ifbstor1/projects/2314_medbioinfo/lina/MedBioinfo/analyses/fastqc/ERR6913154_1_fastqc.zip
+FastQC	all_sections	ERR6913261_1	/shared/ifbstor1/projects/2314_medbioinfo/lina/MedBioinfo/analyses/fastqc/ERR6913261_1_fastqc.zip
+FastQC	all_sections	ERR6913243_2	/shared/ifbstor1/projects/2314_medbioinfo/lina/MedBioinfo/analyses/fastqc/ERR6913243_2_fastqc.zip
+FastQC	all_sections	ERR6913261_2	/shared/ifbstor1/projects/2314_medbioinfo/lina/MedBioinfo/analyses/fastqc/ERR6913261_2_fastqc.zip
+FastQC	all_sections	ERR6913165_2	/shared/ifbstor1/projects/2314_medbioinfo/lina/MedBioinfo/analyses/fastqc/ERR6913165_2_fastqc.zip
+FastQC	all_sections	ERR6913253_1	/shared/ifbstor1/projects/2314_medbioinfo/lina/MedBioinfo/analyses/fastqc/ERR6913253_1_fastqc.zip
+FastQC	all_sections	ERR6913157_1	/shared/ifbstor1/projects/2314_medbioinfo/lina/MedBioinfo/analyses/fastqc/ERR6913157_1_fastqc.zip
+FastQC	all_sections	ERR6913154_2	/shared/ifbstor1/projects/2314_medbioinfo/lina/MedBioinfo/analyses/fastqc/ERR6913154_2_fastqc.zip
+FastQC	all_sections	ERR6913165_1	/shared/ifbstor1/projects/2314_medbioinfo/lina/MedBioinfo/analyses/fastqc/ERR6913165_1_fastqc.zip
+FastQC	all_sections	ERR6913253_2	/shared/ifbstor1/projects/2314_medbioinfo/lina/MedBioinfo/analyses/fastqc/ERR6913253_2_fastqc.zip
+FLASh	all_sections	linastep_flash2	/shared/ifbstor1/projects/2314_medbioinfo/lina/MedBioinfo/analyses/linastep_flash2.log

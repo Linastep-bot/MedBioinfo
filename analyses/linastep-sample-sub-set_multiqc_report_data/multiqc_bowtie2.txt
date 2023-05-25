@@ -1,0 +1,5 @@
+Sample	total_reads	unpaired_total	unpaired_aligned_none	unpaired_aligned_one	unpaired_aligned_multi	overall_alignment_rate
+linastep_bowtie2_Ca	2204248	2204248	2183960	20288	0	0.92
+linastep_bowtie2_PhiX	2204248	2204248	2204248	0	0	0.0
+linastep_bowtie2_SC2	2204248	2204248	2204245	3	0	0.0
+linastep_bowtie2_SC2-checkpoint	2204248	2204248	2204245	3	0	0.0

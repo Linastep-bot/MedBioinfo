@@ -71,6 +71,13 @@ efetch -db nuccore -id NC_045512 -format fasta > ../data/reference_seqs/SC2_NC_0
 srun bowtie2-build -f ../data/reference_seqs/SC2_NC_045512.fna ../data/bowtie2_DBs/SC2_bowtie2_DB
 srun --cpus-per-task=8 bowtie2 -x ../data/bowtie2_DBs/SC2_bowtie2_DB -U ../data/merged_pairs/ERR*.extendedFrags.fastq.gz -S bowtie/linastep_merged2SC2.sam --threads 8 --no-unal 2>&1 | tee bowtie/linastep_bowtie2_SC2.log #3 reads were aligned to the Sars-Cov-2 reference genome
 
+#aligning to most promanent nasal bacterial specie Corynebacterium accolens
+efetch -db nuccore -id NR_042139 -format fasta > ../data/reference_seqs/Ca_NR_042139.fna
+srun bowtie2-build -f ../data/reference_seqs/Ca_NR_042139.fna ../data/bowtie2_DBs/Ca_bowtie2_DB
+srun --cpus-per-task=8 bowtie2 -x ../data/bowtie2_DBs/Ca_bowtie2_DB -U ../data/merged_pairs/ERR*.extendedFrags.fastq.gz -S bowtie/linastep_merged2SCa.sam --threads 8 --no-unal 2>&1 | tee bowtie/linastep_bowtie2_Ca.log #20288 reads (0.92%) were aligned to microbial reference sequence
+
+#perform a multiQC on all files 
+srun multiqc --force --title "linastep sample sub-set" ../data/merged_pairs/ ./fastqc/ ./linastep_flash2.log ./bowtie/
 
 
 
